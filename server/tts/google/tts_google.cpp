@@ -10,6 +10,8 @@ Q_EXPORT_PLUGIN2(tts_google, TTSGoogle)
 TTSGoogle::TTSGoogle():TTSInterface("google", "Google")
 {
 	voiceList.insert("fr", "fr");
+        voiceList.insert("de", "de-de");
+        voiceList.insert("en", "en-us");
 }
 
 TTSGoogle::~TTSGoogle()

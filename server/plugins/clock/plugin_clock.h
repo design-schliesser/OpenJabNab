@@ -16,7 +16,6 @@ public:
 	PluginClock();
 	virtual ~PluginClock();
 	void OnCron(Bunny*, QVariant);
-	bool OnClick(Bunny*, PluginInterface::ClickType);
 	void OnBunnyConnect(Bunny *);
 	void OnBunnyDisconnect(Bunny *);
 	

@@ -5,13 +5,13 @@
 TEMPLATE = lib
 CONFIG -= #DEBUG
 CONFIG += plugin qt debug
-QT += network
+QT += network xml
 QT -= gui
-INCLUDEPATH += . ../../../server ../../../lib
-TARGET = plugin_annuaire
-DESTDIR = ../../../bin/plugins
-DEPENDPATH += . ../../../server ../../../lib
-LIBS += -L../../../bin/ -lcommon
+INCLUDEPATH += . ../../server ../../lib
+TARGET = tts_macsay
+DESTDIR = ../../bin/tts
+DEPENDPATH += . ../../server ../../lib
+LIBS += -L../../bin/ -lcommon
 MOC_DIR = ./tmp/moc
 OBJECTS_DIR = ./tmp/obj
 win32 {
@@ -23,5 +23,5 @@ unix {
 }
 
 # Input
-HEADERS += plugin_annuaire.h
-SOURCES += plugin_annuaire.cpp
+HEADERS += tts_macsay.h
+SOURCES += tts_macsay.cpp

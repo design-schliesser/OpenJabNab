@@ -1,4 +1,5 @@
 Makefile
+.DS_Store
 bin/
 tmp/
 ojn_local/
