@@ -103,6 +103,7 @@ $lng = $lng['value'];
 <form method="post">
 <select name="lng">
 <option value="en"<?php if($lng == 'en') { ?> selected="selected"<?php } ?>>English</option>
+<option value="de"<?php if($lng == 'de') { ?> selected="selected"<?php } ?>>German</option>
 <option value="fr"<?php if($lng == 'fr') { ?> selected="selected"<?php } ?>>French</option>
 </select><br />
 <input type="submit" value="Apply" />

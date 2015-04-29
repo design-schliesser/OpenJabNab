@@ -26,6 +26,9 @@ TTSMacsay::~TTSMacsay()
 
 QByteArray TTSMacsay::CreateNewSound(QString text, QString voice, bool forceOverwrite)
 {
+    //Get Address of Macsay-Server
+    QString macsayServer = GlobalSettings::GetString("OpenJabNabServers/MacsayServer").toAscii();
+
     QEventLoop loop;
 
     if(!voiceList.contains(voice))
@@ -50,25 +53,22 @@ QByteArray TTSMacsay::CreateNewSound(QString text, QString voice, bool forceOver
             return ttsHTTPUrl.arg(voice, fileName).toAscii();
 
     // Fetch MP3
-    QHttp http("192.168.2.99");
+    QHttp http(macsayServer);
     QObject::connect(&http, SIGNAL(done(bool)), &loop, SLOT(quit()));
 
-    QByteArray ContentData;
-    ContentData += "b=123456789abc&f=test1024&t=" + QUrl::toPercentEncoding(text) + "&v=" + voice;
+    QString contentData;
+    contentData = "t=" + QUrl::toPercentEncoding(text) + "&v=" + voice;
 
-    QHttpRequestHeader Header;
-    Header.addValue("Host", "192.168.2.99");
+    //Write Output to Console
+    //LogInfo(QString("TTS-Macsay: %1").arg(contentData));
 
-    Header.setContentLength(ContentData.length());
-    Header.setRequest("GET", "/tts.php", 1, 1);
-
-    http.request(Header, ContentData);
+    http.get("/tts.php?"+contentData);
     loop.exec();
 
     QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly))
     {
-            LogError("Cannot open sound file for writing");
+            LogInfo("Cannot open sound file for writing");
             return QByteArray();
     }
     file.write(http.readAll());

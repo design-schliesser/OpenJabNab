@@ -60,6 +60,7 @@ $translations = array(
 	"Add" => "Ajouter",
 	"Language" => "Langue",
 	"English" => "Anglais",
+	"German" => "Allemand",
 	"French" => "Français",
 	"Apply" => "Appliquer",
 	"Confirm" => "Confirmation",

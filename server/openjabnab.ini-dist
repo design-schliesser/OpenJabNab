@@ -21,6 +21,7 @@ BroadServer=my.domain.com
 XmppServer=my.domain.com
 ListeningHttpPort=8080
 ListeningXmppPort=5222
+MacsayServer=my.domain.com
 
 [Log]
 LogFile=openjabnab.log

@@ -30,7 +30,7 @@ QVariant GlobalSettings::Get(QString const& key)
 		return instance->settings->value(key);
 	else
 	{
-		LogWarning(QString("Unknown setting : %1").arg(key));
+                LogInfo(QString("Unknown setting : %1").arg(key));
 		return QVariant();
 	}
 }
