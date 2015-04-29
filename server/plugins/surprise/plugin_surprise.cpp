@@ -31,7 +31,7 @@ void PluginSurprise::createCron(Bunny * b)
 int PluginSurprise::GetRandomizedFrequency(unsigned int freq)
 {
 	// 250 => ~30min, 125 => ~1h, 50 => ~2h30
-	unsigned int meanTimeInSec = (250/freq) * 30;
+        unsigned int meanTimeInSec = (1500/freq) * 5; //Changed to allow higher frequency without. Example: 250/750 = int 0 --> 0 * 30 instead of 0.333 * 30
 	
 	int deviation = 0;
 
@@ -41,6 +41,7 @@ int PluginSurprise::GetRandomizedFrequency(unsigned int freq)
 		if(maxDeviation > 0)
 		{
 			deviation = qrand() % (maxDeviation);
+                        LogInfo(QString("deviation: %1").arg(deviation));
 		}
 		deviation -= (maxDeviation/2);
 	}

@@ -15,19 +15,29 @@ $frequency = isset($frequency['ok']) ? $frequency['ok'] : '';
 ?>
 <form method="post">
 <fieldset>
-<legend>Votre lapin aime les surprises...</legend>
-<select name="frequency"> <option value="50" <?php if ($frequency==50) echo 'selected'; ?> >Un peu...</option><option value="125" <?php if ($frequency==125) echo 'selected'; ?>>Beaucoup...</option><option value="250" <?php if ($frequency==250) echo 'selected'; ?>>A la folie...</option><option value="0" <?php if ($frequency==0) echo 'selected'; ?>>Pas du tout!</option></select>
-<input type="submit" value="Enregistrer">
+<legend>Your rabbit likes surprises ...</legend>
+<label>Surprise every <select name="frequency">
+	<option value="1500" <?php if ($frequency==1500) echo 'selected'; ?>>5</option>
+    <option value="750" <?php if ($frequency==750) echo 'selected'; ?>>10</option>
+    <option value="500" <?php if ($frequency==500) echo 'selected'; ?>>15</option>
+    <option value="250" <?php if ($frequency==250) echo 'selected'; ?>>30</option>
+    <option value="167" <?php if ($frequency==167) echo 'selected'; ?>>45</option>
+    <option value="125" <?php if ($frequency==125) echo 'selected'; ?>>60</option>
+    <option value="84" <?php if ($frequency==84) echo 'selected'; ?>>90</option>
+    <option value="63" <?php if ($frequency==63) echo 'selected'; ?>>120</option>
+    <option value="50" <?php if ($frequency==50) echo 'selected'; ?> >150</option>
+</select> minutes.</label>
+<input type="submit" value="Submit">
 </fieldset>
 </form>
 <form method="post">
 <fieldset>
-<legend>Voix pour les surprises</legend>
+<legend>Voices for surprises</legend>
 <select name="folder">
 <?php foreach($folders as $folder) { ?>
 <option value="<?php echo $folder ?>"><?php echo $folder ?></option>
 <?php } ?>
 </select>
-<input type="submit" value="Enregistrer">
+<input type="submit" value="Submit">
 </fieldset>
 </form>

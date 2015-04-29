@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /********************************************************/
 /* Diese Datei ist Teil des Rabbit-Island Projektes.	*/
 /* Copyright by André Schließer und Hochschule Ulm		*/
@@ -12,6 +12,8 @@
 $checkFolders = false;
 $ttsFolder = "tts"; //Must be writeable! Just for temporary generated files!
 $logFolder = "log"; //Folder for the log files
+$filename = "";
+
 
 // List of installed Voices
 $voicelist = array("Anna", "Markus", "Petra", "Yannick", 
@@ -44,7 +46,8 @@ if(isset($_GET['v'])){
 if (isset($_GET['t'])){
 	$t=$_GET['t'];
 	if(strlen($t) >= 1){
-		$text = addslashes(utf8_decode($t)); // save escaped(security) text
+		$filename = md5($text.$voice); //generate unique filename
+		$text = addslashes($t); // save escaped(security) text
 		generateMp3($voice,$text); //generate mp3 file
 	}else { logExit ("Text is to short");}
 } else { logExit("Can't get Text!");}
@@ -53,17 +56,16 @@ if (isset($_GET['t'])){
 
 
 function generateMp3($voice, $text){
-	$filename = md5($text.$voice); //generate unique filename
-	global $ttsFolder; // access variable $ttsFolder
-	exec('say -v '.$voice.' -o '.$ttsFolder.'/'.$filename.'.aiff "'.$text.'"'); // execute say command and save it
+	global $filename, $ttsFolder; // access variable $ttsFolder
+	$say = 'say -v '.$voice.' -o '.$ttsFolder.'/'.$filename.'.aiff "'.$text.'"';
+	exec($say); // execute say command and save it
 	exec('lame '.$ttsFolder.'/'.$filename.'.aiff '.$ttsFolder.'/'.$filename.'.mp3'); // convert *.aiff to *.mp3
 	unlink($ttsFolder.'/'.$filename.'.aiff'); // delete *.aiff
-	
 	header("Content-Type: audio/mpeg"); // set content-type for mp3
 	readfile($ttsFolder.'/'.$filename.'.mp3'); // return the mp3 file
 	
 	unlink($ttsFolder.'/'.$filename.'.mp3');  // delete *.mp3
-	logTTS("Success!"); // create log entry
+	logTTS("Success! $say"); // create log entry
 }
 
 function folderCheck($foldername){
