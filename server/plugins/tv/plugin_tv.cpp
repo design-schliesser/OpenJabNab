@@ -18,7 +18,7 @@
 
 Q_EXPORT_PLUGIN2(plugin_tv, PluginTV)
 
-PluginTV::PluginTV():PluginInterface("tv", "Programme TV",BunnyZtampPlugin) {}
+PluginTV::PluginTV():PluginInterface("tv", "TV program",BunnyZtampPlugin) {}
 
 PluginTV::~PluginTV()
 {
@@ -27,7 +27,7 @@ PluginTV::~PluginTV()
 
 bool PluginTV::Init()
 {
-	QByteArray ceSoir = TTSManager::CreateNewSound("Programme télé de ce soir", "claire");
+	QByteArray ceSoir = TTSManager::CreateNewSound("TV program tonight", "claire");
 	if(ceSoir.isNull())
 		return false;
 

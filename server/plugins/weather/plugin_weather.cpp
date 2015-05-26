@@ -19,7 +19,7 @@
 
 Q_EXPORT_PLUGIN2(plugin_weather, PluginWeather)
 
-PluginWeather::PluginWeather():PluginInterface("weather", "Météo",BunnyZtampPlugin)
+PluginWeather::PluginWeather():PluginInterface("weather", "Weather",BunnyZtampPlugin)
 {
 	std::auto_ptr<QDir> dir(GetLocalHTTPFolder());
 	if(dir.get())
@@ -290,7 +290,7 @@ void PluginWeather_Worker::run()
 	int iForecastHigh=0;
 	QString sCurrentCond;
 	QString sForecastCond;
-	QString sForecast("Prévisions:");
+	QString sForecast("Forecast:");
 	QString sCity;
 	while (!xml.atEnd() && (current!=2 || forecast!=3))
 	{
@@ -347,12 +347,12 @@ void PluginWeather_Worker::run()
 		}
 		else
 		{
-			QByteArray where = TTSManager::CreateNewSound(QString("Météo pour %1.").arg(sCity), "claire");
+			QByteArray where = TTSManager::CreateNewSound(QString("Weather for %1.").arg(sCity), "claire");
 			message += "MU "+where+"\nPL 3\nMW\n";
 			if(current!=0)
 			{
-				QByteArray maintenant = TTSManager::CreateNewSound("actuellement, ", "claire");
-				QByteArray temperature = TTSManager::CreateNewSound(QString::number(iCurrentTemp) + " degrés", "claire");
+				QByteArray maintenant = TTSManager::CreateNewSound("currently, ", "claire");
+				QByteArray temperature = TTSManager::CreateNewSound(QString::number(iCurrentTemp) + " degrees", "claire");
 				QByteArray meteo = TTSManager::CreateNewSound(sCurrentCond, "claire");
  				message += "MU "+maintenant+"\nPL 3\nMW\n";
  				message += "MU "+meteo+"\nPL 3\nMW\n";
@@ -362,7 +362,7 @@ void PluginWeather_Worker::run()
 			{
 				QByteArray prevision = TTSManager::CreateNewSound(sForecast, "claire");
 				QByteArray meteo = TTSManager::CreateNewSound(sForecastCond, "claire");
-				QByteArray temperature = TTSManager::CreateNewSound("entre "+QString::number(iForecastLow) + " et "+QString::number(iForecastHigh) + " degrés", "claire");
+				QByteArray temperature = TTSManager::CreateNewSound("entre "+QString::number(iForecastLow) + " et "+QString::number(iForecastHigh) + " degrees", "claire");
  				message += "MU "+prevision+"\nPL 3\nMW\n";
  				message += "MU "+meteo+"\nPL 3\nMW\n";
  				message += "MU "+temperature+"\nPL 3\nMW\n";

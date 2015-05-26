@@ -31,7 +31,7 @@ PluginMemo::~PluginMemo()
 
 void PluginMemo::OnCron(Bunny * b, QVariant v)
 {
-	QByteArray msg = TTSManager::CreateNewSound(v.value<QString>(), "fr", "google");
+        QByteArray msg = TTSManager::CreateNewSound(v.value<QString>(), "de", "google");
 	QByteArray message = "MU "+msg+"\nPL 3\nMW\n";
 	b->SendPacket(MessagePacket(message));
 }

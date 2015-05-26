@@ -19,10 +19,10 @@ bool PluginDice::OnClick(Bunny * b, PluginInterface::ClickType type)
 	if (type == PluginInterface::SingleClick)
 	{
 		// Language
-		QByteArray Language = b->GetPluginSetting("dice", "PluginConfiguration/Language", "fr").toByteArray();
+                QByteArray Language = b->GetPluginSetting("dice", "PluginConfiguration/Language", "de").toByteArray();
 		// Get a random value and create ID
 		quint8 value = rand() % 6 + 1;
-		LogDebug(QString(" -- Language : %1 -- Roll dice : %2").arg(Language, QString::number(value)));
+                LogInfo(QString(" -- Language : %1 -- Roll dice : %2").arg(Language, QString::number(value)));
 		// Send packet to bunny with mp3 to be played
 		b->SendPacket(MessagePacket("MU "+GetBroadcastHTTPPath(Language + "/get.mp3")+"\nMW\nMU "+GetBroadcastHTTPPath(Language + "/" + QString::number(value) + ".mp3")+"\nMW\n"));
 	}

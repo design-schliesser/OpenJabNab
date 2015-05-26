@@ -82,7 +82,8 @@ $translations = array(
 	"Status" => "Status",
 	"Plugins" => "Plugins",
 	"Server" => "Server",
-	"Help" => "Hilfe"
+	"Help" => "Hilfe",
+	"Weather" => "Wetter"
 );
 
 
@@ -100,4 +101,25 @@ $translations['Manage Locate requests'] = "Lokale Anfragen verwalten";
 
 //airquality
 $translations['Air quality plugin'] = "Luftgüte-Plugin";
+
+//cinema
+$translations['Theatrical releases of the week'] = "Kinostarts der Woche";
+
+//Namenstage
+$translations['Ephemeride'] = "Namenstag";
+
+//Ears Pairing with another Bunny
+$translations['Ears Pairing with another Bunny'] = "Ohren koppeln mit einem anderen Hasen";
+
+//cinema
+$translations['Send raw packets to bunny'] = "Direkte API Aufrufe";
+
+//cinema
+$translations['Advanced sleep and wake up'] = "Erweiterte Schlaf und Aufwach Funktion";
+
+//cinema
+$translations['TTS Plugin, Send Text to Bunny'] = "Namenstag";
+
+//Namenstage
+$translations['TV programm'] = "Fernsehprogramm";
 ?>

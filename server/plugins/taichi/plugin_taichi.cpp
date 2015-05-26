@@ -4,7 +4,7 @@
 
 Q_EXPORT_PLUGIN2(plugin_taichi, PluginTaichi)
 
-PluginTaichi::PluginTaichi():PluginInterface("taichi", "Manage Bunny's Taichi",BunnyPlugin)
+PluginTaichi::PluginTaichi():PluginInterface("taichi", "Taichi",BunnyPlugin)
 {
 }
 

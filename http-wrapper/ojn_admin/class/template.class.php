@@ -1,6 +1,6 @@
 <?php
 class ojnTemplate {
-	private $titre_alt	= "";
+	private $titre_alt	= ""; // Title describing the Logo
 	private $titre	= "openJabNab";
 	private $soustitre	= "Configuration";
 	private $Api;
@@ -57,9 +57,11 @@ class ojnTemplate {
         }
 
 	private function makeMenu() {
-		$menu = '<a href="index.php">Home</a>';
+		if(!isset($_SESSION['token'])){
+			$menu = '<a href="index.php">Home</a>';
+		}
 		if(isset($_SESSION['token']))	{
-            $menu .= ' | <a href="account.php">Account</a>';
+            $menu .= '<a href="account.php">Account</a>';
 			$menu .= ' | <a href="bunny.php">Rabbit</a>';
 			$menu .= ' | <a href="ztamp.php?z">Ztamps</a>';
 			if($this->UInfos['isAdmin']) {

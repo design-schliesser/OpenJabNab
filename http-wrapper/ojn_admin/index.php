@@ -22,7 +22,7 @@ if(!empty($_POST['login']) && !empty($_POST['password'])) {
 		$_SESSION['message']['error'] = "Bad authentification.";
 	}
 	session_write_close();
-	header("Location: index.php");
+	header("Location: bunny.php");
 }
 ?>
 <?php
@@ -39,38 +39,49 @@ if(isset($_SESSION['message']) && empty($_GET)) {
 	echo "</div>";
 }
 ?>
-<div class="three_cols">
-      <h1 id="accueil">Home</h1>
-      <p>Welcome to the OpenJabNab configuration page. From here you can enable or disable, configure and schedule the features that manage your Nabaztag bunny.</p>
-</div>
+<div id="home">
+  <section id="homeWelcome">
+    <h1>Home</h1>
+    <p>Welcome to the OpenJabNab configuration page. From here you can enable or disable, configure and schedule the features that manage your Nabaztag bunny.</p>
+  </section>
 
-<div class="three_cols">
+  <section id="homeLogin">
 <?php
 if(isset($_SESSION['token'])) {
 ?>
-<h1>Logout</h1>
-Click on the link to logout: <a href="index.php?logout">Logout</a>
+    <h1>Logout</h1>
+    <p>Click on the link to logout: <a href="index.php?logout">Logout</a></p>
 <?php
 } else {
 ?>
-      <h1 id="tutorial">Login</h1>
-      <form method="post">
-	<dl>
-	<dt>Login</dt>
-	<dd><input type="text" name="login"></dd>
-	<dt>Password</dt>
-	<dd><input type="password" name="password"></dd>
-	</dl>
-	<input type="submit" value="Login">
+	<table>
+  <form method="post">
+	  <tr>    
+    	<td><input type="text" name="login" placeholder="Email"></td>
+	  	<td><input type="password" name="password" placeholder="Password"></td>
+    </tr>
+    <tr>
+    	<td>&nbsp;</td>
+	  	<td><input class="login" type="submit" value="Login"></td>
+    </tr>
 	</form>
+  </table>
 <?php
 }
 ?>
-</div>
+  </section>
 
-<div class="three_cols">
-      <h1 id="tutorial">New account</h1>
-<p>If you want to register your rabbit to this server, you need to create an account. <a href="register.php">Register here</a>.</p>
+  <section id="homeNew">
+    <h1>New account</h1>
+    <p>If you want to register your rabbit to this server, you need to create an account. <a href="register.php">Register here</a>.</p>
+  </section>
+  
+  <div class="slidelft">
+		<a href="#" id="arrowlft" class="arrowlft"></a>
+  </div>
+  <div class="slidert">
+      <a href="#" id="arrowrt" class="arrowrt"></a>
+  </div>
 </div>
 <?php
 require_once("include/append.php");

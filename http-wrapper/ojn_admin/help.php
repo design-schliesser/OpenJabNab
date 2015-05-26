@@ -4,7 +4,7 @@ if(!defined('ADMIN_EMAIL'))
 {
 ?>
 This function is currently unavailable.
-<?
+<?php
 }
 else
 {
@@ -73,7 +73,7 @@ Description :<textarea name="desc" style="width: 300px; height: 150px"></textare
 <br /><br /><input type="submit" value="Submit">
 </form>
 </fieldset>
-<?
+<?php
 }
 require_once "include/append.php";
 ?>

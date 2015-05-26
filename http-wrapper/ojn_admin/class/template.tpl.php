@@ -1,53 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr-FR">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
-    <meta name="author" content="openJabNab" />
-    <meta name="generator" content="openJabNab" />
-	<link rel="icon" href="favicon.ico" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link rel="icon" href="favicon.ico" />
     <link rel="top" href="./index.php" title="Homepage" />
-    <link rel="stylesheet" type="text/css" href="css/openjabnab.css" media="screen" title="openJabNab" />
-
+    <link rel="stylesheet" type="text/css" href="css/openjabnab.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="css/island.css" media="screen"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/homeSlider.js" type="text/javascript"></script> 
+    <script type="text/javascript">initialize();</script>
     <title><!!TITLE!!></title>
   </head>
 
   <body>
-
-    <div id="header">
-      <div class="superHeader">
-        <span>Direct links:</span>
-        <a href="http://ojnwiki.psnet.fr/" title="openJabNab Wiki">openJabNab Wiki</a> |
-        <a href="http://freenabaztag.com/" title="Nabaztags directory">openJabNab directory</a>
-      </div>
-
-      <div class="midHeader">
-        <h1 class="headerTitle" alt="<!!ALTTITLE!!>" title="<!!ALTTITLE!!>"><img src="/ojn_admin/images/logo.png"></h1>
-        <div class="headerSubTitle"><!!SUBTITLE!!></div>
-
-        <div class="headerLinks">
-      </div>
-      </div>
-
-      <div class="subHeader">
+  	<!-- BACKGROUND GRADIENTS -->
+	<div id="bgdiv">
+        <div id="sky"></div>
+        <div id="sea"></div>
+    </div>
+    
+    <!-- HEADER -->
+    <header>
+      <nav>
         <span class="doNotDisplay">Navigation:</span>
-	<!!MENU!!>
-      </div>
+        <!!MENU!!>
+      </nav>
+    </header>
+    
+    <!-- ISLAND -->
+    <div id="fgdiv">
+    	<div id="centerdiv">
+        	<div id="ri">
+            	<!-- ISLAND -->
+    			<div id="island"><img src="images/island.svg" width="400" height="400" /></div>
+            	<div id="leaves"><img src="images/leaves.svg" width="500" height="250" /></div>
+                
+                <!-- NABAZTAG -->
+                <div id="nabaztag"><img src="images/nabaztag.svg" width="250" height="250" /></div>
+                <!--<div id="nabaztag"><a href="#" onClick="alert('Hello! I am a Nabaztag!')"><img src="nabaztag.svg" width="250" height="250" /></a></div>-->
+                
+                <!-- PLUGINS --><!-- Begin of Comment 
+                <div id="webradio"><a href="#" onClick="alert('Hello! I am a Webradio!')"><img src="images/webradio.svg" width="110" height="110" /></a></div>
+                <div id="earpairing"><a href="#" onClick="alert('Hello! I am a Ear!')"><img src="images/earpairing.svg" width="80" height="80" /></a></div>
+                <div id="email"><a href="#" onClick="alert('Hello! I am a Email!')"><img src="images/email.svg" width="80" height="80" /></a></div>
+                <div id="clock"><a href="#" onClick="alert('Hello! I am a Clock!')"><img src="images/clock.svg" width="75" height="75" /></a></div>
+                <div id="dice"><a href="#" onClick="alert('Hello! We are Dice!')"><img src="images/dice.svg" width="60" height="60" /></a></div>
+                <!-- End of Comment -->
+                <!-- ZTAMPS --><!-- Begin of Comment 
+                <div id="zwebradio"><img src="images/ztamp_black.svg" width="20" height="40" /></div>
+                <div id="zclock"><img src="images/ztamp_yellow.svg" width="18" height="36" /></div>
+                <div id="zemail"><img src="images/ztamp_blue.svg" width="20" height="40" /></div>
+                <div id="zdice"><img src="images/ztamp_pink.svg" width="24" height="48" /></div>
+                <!-- End of Comment -->
+                <div id="ojnContent">    
+              	  <div id="main-copy">
+                	<!!CONTENT!!>
+                	<br clear="both" />
+                   </div>
+            	</div>
+            </div>
+        </div>
     </div>
-
+    
+    <!-- OJN GENERATED CONTEND
+    <div id="ojnContent">    
+      <div id="main-copy">
+        <!!CONTENT!!>
+        <br clear="both" />
+       </div>
+    </div>-->
     <ul id="side-bar">
-	<!!BUNNIES!!>
-    </ul>
-
-    <div id="main-copy">
-	<!!CONTENT!!>
-	<br clear="both" />
-    </div>
-
-    <div id="footer">
+       <!!BUNNIES!!>
+     </ul>
+    
+    <footer>
       <span class="doNotPrint">
-      <strong>Bunnies &raquo;</strong> <!!LAPINS!!> &bull; <strong>Ztamps &raquo;</strong> <!!ZTAMPS!!> &bull; <strong>Plugins &raquo;</strong> <!!PLUGINS!!> 
+        <strong>Bunnies &raquo;</strong> <!!LAPINS!!> &bull; <strong>Ztamps &raquo;</strong> <!!ZTAMPS!!> &bull; <strong>Plugins &raquo;</strong> <!!PLUGINS!!> 
       </span>
-
-      </div>
+    </footer>
   </body>
 </html>
